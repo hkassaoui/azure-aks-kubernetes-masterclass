@@ -1,17 +1,22 @@
-# Configure Azure Provider
 provider "azurerm" {
-  # Version is optional
-  # Terraform recommends to pin to a specific version of provide
-  #version = "=2.35.0"
-  #version = "~>2.35.0"
   features {}
 }
+
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "3.26.0"
+    }
+  }
+}
+
 
  
 # Create a Azure Resource Group
 resource "azurerm_resource_group" "aks-rg2" {
   name     = "aks-rg2-tf"
-  location = "Central US"
+  location = "canadacentral"
 
 # Add Tags
 #  tags = {
